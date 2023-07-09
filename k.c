@@ -6,4 +6,5 @@ typedef struct k{C t;I r,n;C d[];}*K;
 #define O printf
 
 #define SM 64 //source max
-int main(){C b[SM],*s=b;W(1){if(!fgets(s,SM,stdin)||'\\'==*s)exit(0);O("%s",s);}}
+void rd(){C b[SM],*s=b;if(!fgets(s,SM,stdin)||'\\'==*s)exit(0);O("%s",s);}
+int main(){W(1){rd();}}
