@@ -7,4 +7,4 @@ typedef struct k{C t;I r,n;C d[];}*K;
 
 #define SM 64 //source max
 void rd(){C b[SM],*s=b;if(!fgets(s,SM,stdin)||'\\'==*s)exit(0);O("%s",s);}
-int main(){W(1){rd();}}
+int main(){W(1){O(" ");rd();}}
