@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-typedef char C; typedef long I;
+typedef char C; typedef long I; typedef void V;
 typedef struct k{C t;I r,n;C d[];}*K;
 #define kT(k) (k->t)
 #define kR(k) (k->r)
@@ -22,7 +22,7 @@ K ma(I n){R (K)malloc(sizeof(struct k)+8*n);}
 K tn(C t,I n){K x=ma(n);R xt=t,xr=0,xn=n,x;}
 K ki(I i){K x=tn(-KI,1);R *xi=i,x;} K ke(C a){K x=tn(KE,1);R *xc=a,x;}
 K ku(I i){K x=tn( KU,1);R *xi=i,x;}
-void r0(K x){if(xr--)R;free(x);}
+V r0(K x){if(xr--)R;free(x);}
 
 // parse
 I qn(C a){R a>='0'&&a<='9';} 
