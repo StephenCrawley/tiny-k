@@ -35,5 +35,5 @@ K pr(K x){-KI==xt?O("%ld",*xi):KU==xt?O("%c:",vt[*xi]):O("'%c",*xc);R O("\n"),r0
 
 // repl
 #define SM 64 //source max
-K rd(){C b[SM],*s=b;if(!fgets(s,SM,stdin)||'\\'==*s)exit(0);R pe(s);}
+K rd(){C b[SM];if(!fgets(b,SM,stdin)||'\\'==*b)exit(0);R pe(b);}
 int main(){W(1){O(" ");pr(rd());}}
