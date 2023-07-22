@@ -16,6 +16,8 @@ typedef struct k{C t;I r,n;C d[];}*K;
 #define R return
 #define DO(n,x) {I _n=(n),i=0;for(;i<_n;++i){x;}}
 
+C*sc(C *s,C c){W(*s!=c)if(!*s++)R 0;R s;}
+
 // object
 enum {KE=-128,KK=0,KI,KU};
 K ma(I n){R (K)malloc(sizeof(struct k)+8*n);}
@@ -26,7 +28,7 @@ V r0(K x){if(xr--)R;free(x);}
 
 // parse
 I qn(C a){R a>='0'&&a<='9';} 
-C vt[]=" +!#,"; I qv(C a){I i=-1;W(vt[++i])if(a==vt[i])R i;R 0;}
+C vt[]=" :+!#,"; I qv(C a){C *s=sc(vt,a);R s?s-vt:0;}
 K pi(C**p){C*s=*p;I i=0;W(qn(*s))i=(*s++-'0')+10*i;R *p=s,ki(i);}
 K pe(C *s){W(' '==*s)++s;I i;R qn(*s)?pi(&s):(i=qv(*s))?ku(i):ke(*s);}
 
@@ -35,5 +37,5 @@ K pr(K x){-KI==xt?O("%ld",*xi):KU==xt?O("%c:",vt[*xi]):O("'%c",*xc);R O("\n"),r0
 
 // repl
 #define SM 64 //source max
-K rd(){C b[SM];if(!fgets(b,SM,stdin)||'\\'==*b)exit(0);R pe(b);}
+K rd(){C b[SM];if(!fgets(b,SM,stdin)||'\\'==*b)exit(0);R *sc(b,'\n')=0,pe(b);}
 int main(){W(1){O(" ");pr(rd());}}
