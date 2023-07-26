@@ -44,7 +44,7 @@ K r1(K x){R xr++,x;}
 // parse
 C*ws(C*s){W(' '==*s)++s;R s;} 
 I qn(C a){R a>='0'&&a<='9';} I qa(C a){R a>='a'&&a<='z';}
-C vt[]=" :+!#,"; I qv(C a){C *s=sc(vt,a);R s?s-vt:0;}
+C vt[]=" :+*!#,"; I qv(C a){C *s=sc(vt,a);R s?s-vt:0;}
 C wt[]=" /\\"; I qw(C a){C *s=sc(wt,a);R s?s-wt:0;} 
 K pi(C**p){C*s=*p;I i=0;W(qn(*s))i=i*10+*s++-'0';R *p=s,ki(i);}
 K pe(C *s){s=ws(s);K x,y;C a=*s++;I w,v=qv(a),n=qn(a);
@@ -57,16 +57,17 @@ K pe(C *s){s=ws(s);K x,y;C a=*s++;I w,v=qv(a),n=qn(a);
 K g[26]={0}; //global vars a-z
 
 // verbs
+V1(first){K r=xt?ki(*xi):r1(*xk);R r0(x),r;}
 V1(til){K y=kI(*xi);DO(yn,yi[i]=i);R r0(x),y;} 
-V1(cnt){K y=ki(xn);R r0(x),y;}
+V1(count){K y=ki(xn);R r0(x),y;}
 V2(join){K z=kI(xn+yn);
  DO(xn,zi[i]=xi[i]);DO(yn,zi[i+xn]=yi[i]);R r0(x),r0(y),z;}
 V2(set){I v=*xc-'a';if(g[v])r0(g[v]);R g[v]=r1(y);}
 V2(add){if(xt>0&&yt>0&&xn!=yn)R r0(x),r0(y),ke('+');K z;if(yt>0)z=x,x=y,y=z;
  I n=xn;z=tn(xt,n);if(n>yn)DO(n,zi[i]=xi[i]+*yi)else DO(n,zi[i]=xi[i]+yi[i])
  R r0(x),r0(y),z;}
-K (*fu[])()={0,0,0,til,cnt,0},
-  (*fv[])()={0,0,add,0,0,join};
+K (*fu[])()={0,0,0,first,til,count,0},
+  (*fv[])()={0,0,add,0,0,0,join};
 
 // eval
 V1(get){x=g[*xc-'a'];R x?r1(x):ke(*xc);}
