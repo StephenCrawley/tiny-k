@@ -2,10 +2,10 @@
 #include<stdlib.h>
 typedef char C; typedef long I; typedef void V;
 typedef struct k{C t;I r,n;C d[];}*K;
-#define kT(k) (k->t)
-#define kR(k) (k->r)
-#define kN(k) (k->n)
-#define kD(k) ((void*)(k->d))
+#define kT(k) ((k)->t)
+#define kR(k) ((k)->r)
+#define kN(k) ((k)->n)
+#define kD(k) ((void*)((k)->d))
 #define xt    (kT(x))
 #define xr    (kR(x))
 #define xn    (kN(x))
