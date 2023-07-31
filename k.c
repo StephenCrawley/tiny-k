@@ -47,7 +47,7 @@ I qn(C a){R a>='0'&&a<='9';} I qa(C a){R a>='a'&&a<='z';}
 C vt[]=" :+*!#,"; I qv(C a){C *s=sc(vt,a);R s?s-vt:0;}
 C wt[]=" /\\"; I qw(C a){C *s=sc(wt,a);R s?s-wt:0;} 
 K pi(C**p){C*s=*p;I i=0;W(qn(*s))i=i*10+*s++-'0';R *p=s,ki(i);}
-K pe(C *s){s=ws(s);K x,y;C a=*s++;I w,v=qv(a),n=qn(a);
+K pe(C *s){s=ws(s);if(!*s)R 0;K x,y;C a=*s++;I w,v=qv(a),n=qn(a);
  if(!v&&!n&&!qa(a)){R ke(a);}if(v&&(w=qw(*s)))++s;
  if(v){s=ws(s);if(!*s)R ke(a);R y=pe(s),KE==yt?y:k2(w?kwv(w,v):ku(v),y);}
  --s,x=n?pi(&s):ks(*s++);if(KE==xt)R x;s=ws(s),a=*s++;if(!a)R x;
@@ -75,14 +75,14 @@ K e0(K x){K y,z;if(xt)R -KS==xt?get(x):r1(x);
  y=xk[1];if(2==xn){y=e0(y);if(KE==yt)R y;x=*xk;K(*u)(K)=fu[*xi];R u?u(y):y;}
  z=e0(xk[2]);if(KE==zt)R z;x=*xk;if(-KS==yt&&qv(':')==*xi)R set(y,z);
  y=e0(y);if(KE==yt)R r0(z),y;K(*v)(K,K)=fv[*xi];R !v?r0(y),z:v(y,z);}
-K ev(K x){K y=e0(x);R r0(x),y;}
+K ev(K x){if(!x)R x;K y=e0(x);R r0(x),y;}
 
 // print
 V p0(K x){if(KI==xt){DO(xn,O("%ld ",xi[i]));R;}
  -KI==xt?O("%ld",*xi):-KS==xt?O("`%c",*xc):KW==xt?O("%c",wt[*xi]):
   KE==xt?O("'%c",*xc):O(KU==xt?"%c:":"%c",vt[*xi]);}
 V pk(K x){if(xt){p0(x);R;}O("(");DO(xn,pk(xk[i]);if(i<xn-1)O(";"))O(")");}
-K pr(K x){pk(x);O("\n");R r0(x),x;}
+K pr(K x){if(!x)R x;pk(x);O("\n");R r0(x),x;}
 
 // repl
 #define SM 64 //source max
