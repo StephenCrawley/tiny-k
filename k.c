@@ -69,7 +69,7 @@ V2(join){K z=kK(xn+yn);x=xp(x);y=xp(y);
  DO(xn,zk[i]=r1(xk[i]));DO(yn,zk[i+xn]=r1(yk[i]));R r0(x),r0(y),sq(z);}
 V2(set){I v=*xc-'a';if(g[v])r0(g[v]);R g[v]=r1(y);}
 K n_take(I n,K x){I t=xt<0?-xt:xt;K z=tn(t,n);
- DO(n,if(KI==t)zi[i]=xi[i%xn];else zk[i]=r1(xk[i%xn]);)R r0(x),z;}
+ if(!xt)DO(n,zk[i]=r1(xk[i%xn]))else DO(n,zi[i]=xi[i%xn])R r0(x),z;}
 V2(take){if(-KI!=xt)R r0(x),r0(y),ke('#');y=n_take(*xi,y);R r0(x),y;}
 V2(add){if(xt>=0&&yt>=0&&xn!=yn)R r0(x),r0(y),ke('+');K z,t;
  if(yn>xn||(xt&&!yt)){z=x,x=y,y=z;}z=tn(xt,xn);
