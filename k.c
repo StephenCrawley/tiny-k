@@ -96,9 +96,9 @@ K e0(K x){K y,z;if(xt)R -KS==xt?get(x):r1(x);y=xk[1];
 K ev(K x){if(!x)R x;K y=e0(x);R r0(x),y;}
 
 // print
-V p0(K x){if(KI==xt){DO(xn,O("%ld ",xi[i]));R;}
- -KI==xt?O("%ld",*xi):-KS==xt?O("`%c",*xc):KW==xt?O("%c",wt[*xi]):
-  KE==xt?O("'%c",*xc):O(KU==xt?"%c:":"%c",vt[*xi]);}
+V p0(K x){if(KI==abs(xt)){DO(xn,O("%ld ",xi[i]));R;}
+ KE==xt?O("'%c",*xc):-KS==xt?O("`%c",*xc):
+ KW==xt?O("%c",wt[*xi]):O(KU==xt?"%c:":"%c",vt[*xi]);}
 V pk(K x){if(xt>=0&&1==xn)O(",");
  if(xt){p0(x);R;}O("(");DO(xn,pk(xk[i]);if(i<xn-1)O(";"))O(")");}
 K pr(K x){if(!x)R x;pk(x);O("\n");R r0(x),x;}
