@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 typedef char C; typedef long I; typedef void V;
-typedef struct k{C t;I r,n;C d[];}*K;
+typedef struct {C t;I r,n;C d[];}*K;
 #define kT(k) ((k)->t)
 #define kR(k) ((k)->r)
 #define kN(k) ((k)->n)
@@ -31,7 +31,7 @@ C*sc(C *s,C c){W(*s!=c)if(!*s++)R 0;R s;}
 
 // object
 enum {KE=-128,KK=0,KI,KS,KU,KV,KW};
-K ma(I n){R (K)malloc(sizeof(struct k)+sizeof(I)*n);}
+K ma(I n){K k=malloc(sizeof(*k)+sizeof(I)*n);R k;}
 K tn(C t,I n){K x=ma(n);R xt=t,xr=0,xn=n,x;}
 K k1(K a){K x=tn(KK,1);R *xk=a,x;}
 K k2(K a,K b){K x=tn(KK,2);R *xk=a,xk[1]=b,x;}
