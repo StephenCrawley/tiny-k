@@ -55,7 +55,7 @@ K pi(C**p){C*s=*p;I i=0;W(qn(*s))i=i*10+*s++-'0';R *p=s,ki(i);}
 K pe(C *s){s=ws(s);if(!*s)R 0;K x,y;C a=*s++;I w,v=qv(a),n=qn(a);
  if(!v&&!n&&!qa(a)){R ke(a);}if(v){w=qw(*s);s=ws(w?s+1:s);
   R !*s?ke(a):KE==kT(y=pe(s))?y:k2(w?kwv(w,v):ku(v),y);}
- --s,x=n?pi(&s):ks(*s++);if(KE==xt)R x;s=ws(s),a=*s++;if(!a)R x;
+ x=n?--s,pi(&s):ks(a);s=ws(s),a=*s++;if(!a)R x;
  v=qv(a);if(v&&(w=qw(*s)))++s;if(!v||!*(s=ws(s)))R r0(x),ke(a);
  R y=pe(s),KE==yt?r0(x),y:k3(w?kwv(w,v):kv(v),x,y);}
 
