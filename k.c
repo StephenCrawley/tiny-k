@@ -91,7 +91,7 @@ K ew(K x,K y,K z){I i=*(I*)kD(*xk);x=xk[1];R (1==i?xover:xscan)(fv[*xi],y,z);}
 V1(get){K y=g[*xc-'a'];R y?r1(y):ke(*xc);}
 K e0(K x){K y,z;if(xt)R -KS==xt?get(x):r1(x);y=xk[1];
  if(2==xn)R x=*xk,y=e0(y),KE==yt?y:!xt?ew(x,w0(xk[1]),y):fu[*xi]?fu[*xi](y):y;
- z=e0(xk[2]);if(KE==zt)R z;x=*xk;if(-KS==yt&&vt[*xi]==':')R set(y,z);
+ z=e0(xk[2]);if(KE==zt)R z;x=*xk;if(-KS==yt&&KV==xt&&vt[*xi]==':')R set(y,z);
  y=e0(y);R KE==yt?r0(z),y:!xt?ew(x,y,z):!fv[*xi]?r0(y),z:fv[*xi](y,z);}
 K ev(K x){if(!x)R x;K y=e0(x);R r0(x),y;}
 
