@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-typedef char C; typedef long I; typedef void V;
+typedef char C; typedef long long I; typedef void V;
 typedef struct {C t;I r,n;C d[];}*K;
 #define kT(k) ((k)->t)
 #define kR(k) ((k)->r)
@@ -96,7 +96,7 @@ K e0(K x){K y,z;if(xt)R -KS==xt?get(x):r1(x);y=xk[1];
 K ev(K x){if(!x)R x;K y=e0(x);R r0(x),y;}
 
 // print
-V p0(K x){if(KI==abs(xt)){DO(xn,O("%ld ",xi[i]));R;}
+V p0(K x){if(KI==abs(xt)){DO(xn,O("%lld ",xi[i]));R;}
  KE==xt?O("'%c",*xc):-KS==xt?O("`%c",*xc):
  KW==xt?O("%c",wt[*xi]):O(KU==xt?"%c:":"%c",vt[*xi]);}
 V pk(K x){if(xt>=0&&1==xn)O(",");
