@@ -72,7 +72,7 @@ K n_take(I n,K x){I t=xt<0?-xt:xt;K z=tn(t,n);
  if(!xt)DO(n,zk[i]=r1(xk[i%xn]))else DO(n,zi[i]=xi[i%xn])R r0(x),z;}
 V2(take){if(-KI!=xt)R r0(x),r0(y),ke('#');y=n_take(*xi,y);R r0(x),y;}
 V2(add){if(xt>=0&&yt>=0&&xn!=yn)R r0(x),r0(y),ke('+');K z,t;
- if(yn>xn||(xt&&!yt)){z=x,x=y,y=z;}z=tn(xt,xn);
+ if(yn>xn||(xt&&(!yt||yt>xt))){z=x,x=y,y=z;}z=tn(xt,xn);
  if(!xt){y=xp(n_take(xn,y));DO(xn,t=add(r1(xk[i]),r1(yk[i]));
   if(KE==kT(t)){W(i--)r0(zk[i]);free(z);z=t;break;}zk[i]=t;)R r0(x),r0(y),z;}
  if(xn>yn)DO(xn,zi[i]=xi[i]+*yi)else DO(xn,zi[i]=xi[i]+yi[i])R r0(x),r0(y),z;}
