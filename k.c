@@ -88,8 +88,7 @@ K xover(K(*v)(K,K),K x,K y){x=xscan(v,x,y);if(KE==xt)R x;
  K r=xt?ki(xi[xn-1]):r1(xk[xn-1]);R r0(x),r;}
 K w0(K x){R vt[*xi]==','?kI(0):ki(0);}
 K ew(K x,K y,K z){I i=*(I*)kD(*xk);x=xk[1];R (1==i?xover:xscan)(fv[*xi],y,z);}
-V1(get){K y=g[*xc-'a'];R y?r1(y):ke(*xc);}
-K e0(K x){K y,z;if(xt)R -KS==xt?get(x):r1(x);y=xk[1];
+K e0(K x){K y,z;if(xt)R -KS!=xt?r1(x):(y=g[*xc-'a'])?r1(y):ke(*xc);y=xk[1];
  if(2==xn)R x=*xk,y=e0(y),KE==yt?y:!xt?ew(x,w0(xk[1]),y):fu[*xi]?fu[*xi](y):y;
  z=e0(xk[2]);if(KE==zt)R z;x=*xk;if(-KS==yt&&KV==xt&&vt[*xi]==':')R set(y,z);
  y=e0(y);R KE==yt?r0(z),y:!xt?ew(x,y,z):!fv[*xi]?r0(y),z:fv[*xi](y,z);}
