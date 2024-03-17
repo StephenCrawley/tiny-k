@@ -36,11 +36,10 @@ K tn(C t,I n){K x=ma(n);R xt=t,xr=0,xn=n,x;}
 K k1(K a){K x=tn(KK,1);R *xk=a,x;}
 K k2(K a,K b){K x=tn(KK,2);R *xk=a,xk[1]=b,x;}
 K k3(K a,K b,K c){K x=tn(KK,3);R *xk=a,xk[1]=b,xk[2]=c,x;}
-K ks(C a){K x=tn(-KS,1);R *xc=a,x;}
-K ki(I i){K x=tn(-KI,1);R *xi=i,x;} K ke(C a){K x=tn(KE,1);R *xc=a,x;}
-K ku(I i){K x=tn( KU,1);R *xi=i,x;} K kv(I i){K x=tn(KV,1);R *xi=i,x;}
-K kw(I i){K x=tn( KW,1);R *xi=i,x;} K kwv(I w,I v){R k2(kw(w),kv(v));}
-K kK(I n){R tn(KK,n);}              K kI(I n){R tn(KI,n);}
+K ka(I t,I i){K x=tn(t,1);R *xi=i,x;} K ki(I i){R ka(-KI,i);} 
+K ku(I i){R ka(KU,i);} K kv(I i){R ka(KV,i);} K ks(I a){R ka(-KS,a);}
+K ke(I a){R ka(KE,a);} K kw(I i){R ka(KW,i);} K kK(I n){R tn( KK,n);} 
+K kI(I n){R tn(KI,n);} K kwv(I w,I v){R k2(kw(w),kv(v));}
 V r0(K x){if(xr--)R;if(!xt)DO(xn,r0(xk[i]));free(x);} K r1(K x){R xr++,x;}
 K xp(K x){if(!xt)R x;K z=kK(xn);DO(xn,zk[i]=ki(xi[i]))R r0(x),z;}
 K sq(K x){K y,z=kI(xn);
