@@ -16,7 +16,6 @@ typedef struct  {C t;I r,n;C d[];}*K;
 #define yt      (kT(y))
 #define yn      (kN(y))
 #define yi      ((I*)kD(y))
-#define yk      ((K*)kD(y))
 #define zi      ((I*)kD(z))
 #define zk      ((K*)kD(z))
 #define W       while
@@ -50,21 +49,23 @@ K sq(K x){DO(xn,if(kT(xk[i])!=-KI)R x;)R X0(Zi(xn,*(I*)kD(xk[i])));}
 K ix(I i,K x){R 0>xt?r1(x):xt?ki(xi[i]):r1(xk[i]);}
 
 // parse
-C*ws(C*s){W(' '==*s)++s;R s;} 
-I qn(C a){R a>='0'&&a<='9';} I qa(C a){R a>='a'&&a<='z';}
+#define EOE(c) strchr(")\0",(c)) //end of expression
+C ws(C**p){W(' '==**p)++*p;R **p;} I qb(C a){R '('==a;}
+I qi(C a){R a>='0'&&a<='9';} I qa(C a){R a>='a'&&a<='z';}
 C vt[]=" :+*!#,"; I qv(C a){C *s=strchr(vt,a);R s?s-vt:0;}
 C wt[]=" /\\"; I qw(C a){C *s=strchr(wt,a);R s?s-wt:0;} 
-K pi(C**p){C*s=*p;I i=0;W(qn(*s))i=i*10+*s++-'0';R *p=s,ki(i);}
-K pe(C *s){s=ws(s);if(!*s)R 0;K x,y;C a=*s++;I w,v=qv(a),n=qn(a);
- if(!v&&!n&&!qa(a)){R ke(a);}if(v){w=qw(*s);s=ws(w?s+1:s);
-  R !*s?ke(a):QE(y=pe(s))?y:k2(w?kwv(w,v):ku(v),y);}
- x=n?--s,pi(&s):ks(a);s=ws(s),a=*s++;if(!a)R x;
- v=qv(a);if(v&&(w=qw(*s)))++s;if(!v||!*(s=ws(s)))R X0(ke(a));
- R QE(y=pe(s))?X0(y):k3(w?kwv(w,v):kv(v),x,y);}
-
-K g[26]={0}; //global vars a-z
+K pi(C**p){C*s=*p;I i=0;W(qi(*s))i=i*10+*s++-'0';R *p=s,ki(i);}
+K pe();K pb(C**p){K x;R !ws(p)?ke(')'):')'==**p?++*p,kK(0):
+ QE(x=pe(p))?x:')'==**p?++*p,x:X0(ke(')'));}
+K pe(C**p){K x,y;C a=*(*p)++;I w,v=qv(a),n=qi(a),b=qb(a);
+ if(!v&&!n&&!b&&!qa(a)){R ke(a);}if(v){w=qw(**p);
+  R (*p)+=!!w,!ws(p)?ke(a):QE(y=pe(p))?y:k2(w?kwv(w,v):ku(v),y);}
+ x=n?--*p,pi(p):b?pb(p):ks(a);if(QE(x))R x;if(EOE(a=ws(p)))R x;
+ v=qv(a);if(v&&(w=qw(*++*p)))++*p;if(!v||EOE(ws(p)))R X0(ke(a));
+ R QE(y=pe(p))?X0(y):k3(w?kwv(w,v):kv(v),x,y);}
 
 // verbs
+K g[26]={0}; // variable table a-z
 V1(nyi){R X0(ke(0));} V2(Nyi){R X0(Y0(ke(0)));}
 V1(top){R X0(ix(0,x));} V1(til){R X0(-KI!=xt?ke('!'):Zi(*xi,i));}
 V1(cnt){R X0(ki(xn));} V1(enl){R sq(k1(x));}
@@ -84,12 +85,13 @@ K (*fu[])()={0,nyi,nyi,top,til,cnt,enl},
 // eval
 K w0(K x){R vt[*xi]==','?kI(0):ki(vt[*xi]=='*');}
 K ew(K x,K y,K z){I i=*(I*)kD(*xk);x=xk[1];R fw[i](fv[*xi],y,z);}
-K e0(K x){K y,z;if(xt)R y=-KS!=xt?x:g[*xc-'a'],y?r1(y):ke(*xc);y=xk[1];
- if(2==xn)R x=*xk,QE(y=e0(y))?y:xt?fu[*xi](y):ew(x,w0(xk[1]),y);
+K e0(K x){K y,z;if(!xn)R r1(x);if(xt)R y=-KS!=xt?x:g[*xc-'a'],y?r1(y):ke(*xc);
+y=xk[1];if(2==xn)R x=*xk,QE(y=e0(y))?y:xt?fu[*xi](y):ew(x,w0(xk[1]),y);
  if(QE(z=e0(xk[2]))){R z;}x=*xk;if(-KS==yt&&KV==xt&&vt[*xi]==':')R set(y,z);
  R QE(y=e0(y))?Z0(y):xt?fv[*xi](y,z):ew(x,y,z);}
 K ev(K x){R x?X0(e0(x)):x;}
 
+// print
 V pk(K x){if(xt<0||xt>KS){-KI==xt?O("%lld",*xi):-KS==xt?O("`%c",*xc):
  QE(x)?*xc?O("'%c",*xc):O("'nyi"):Oc((KW==xt?wt:vt)[*xi]);R;}r1(x);
  C l="\0("[!xt];if(KI==xt)x=xp(x);if(1==xn){Oc(','),pk(*xk);r0(x);R;}
@@ -97,6 +99,6 @@ V pk(K x){if(xt<0||xt>KS){-KI==xt?O("%lld",*xi):-KS==xt?O("`%c",*xc):
 K pr(K x){if(!x)R x;xn?pk(x):O(xt?"!0":"()");O("\n");R X0(x);}
 
 // repl
-K rd(){C b[64];if(!fgets(b,64,stdin)||'\\'==*b){DO(26,r0(g[i]));exit(0);}
- R *strchr(b,'\n')=0,pe(b);}
+K rd(){C b[64],*s;if(!fgets(b,64,stdin)||'\\'==*b){DO(26,r0(g[i]));exit(0);}
+ K x;R *strchr(b,'\n')=0,s=b,x=!ws(&s)?0:pe(&s),*s?X0(ke(*s)):x;}
 int main(){W(1){O(" ");pr(ev(rd()));}}
