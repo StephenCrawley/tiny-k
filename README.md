@@ -2,7 +2,7 @@
 
 a tiny, incomplete k interpreter influenced by the j incunabulum[0]. over many summer afternoons...
 
-this project was intended as fun challenge to see how much functionality could be crammed into a couple pages of code. some loose aims were:
+this project was intended as a fun challenge to see how much functionality could be crammed into a couple pages of code. some loose aims were:
 
 - written in compact "Whitney-style" C (see [0])
 - implement at least one dyadic arithmetic verb
