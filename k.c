@@ -88,7 +88,7 @@ K (*fu[])()={0,nyi,nyi,top,til,cnt,enl,nyi},
 K w0(K x){R vt[*xi]==','?kI(0):ki(vt[*xi]=='*');}
 K ew(K x,K y,K z){I i=*(I*)kD(*xk);x=xk[1];R fw[i](fv[*xi],y,z);}
 K e0(K x){K y,z;if(!xn)R r1(x);if(xt)R y=-KS!=xt?x:g[*xc-'a'],y?r1(y):ke(*xc);
-y=xk[1];if(2==xn)R x=*xk,QE(y=e0(y))?y:xt?fu[*xi](y):ew(x,w0(xk[1]),y);
+ y=xk[1];if(2==xn)R x=*xk,QE(y=e0(y))?y:xt?fu[*xi](y):ew(x,w0(xk[1]),y);
  if(QE(z=e0(xk[2]))){R z;}x=*xk;if(-KS==yt&&KV==xt&&vt[*xi]==':')R set(y,z);
  R QE(y=e0(y))?Z0(y):xt?fv[*xi](y,z):ew(x,y,z);}
 K ev(K x){R x?X0(e0(x)):x;}
