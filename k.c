@@ -76,9 +76,9 @@ V2(Tak){R X0(Y0(-KI!=xt?ke('#'):yt?Zi(*xi,yi[i%yn]):Zk(*xi,ix(i%yn,y))));}
  R X0(Y0(-KI==yt?xt?Zi(xn,xi[i] op *yi):Zk(xn,f(ix(i,x),r1(y))):     \
  xn!=yn?ke(*#op):xt&&yt?Zi(xn,xi[i] op yi[i]):Zk(xn,f(ix(i,x),ix(i,y)))));
 V2(Add){OP(Add,+)} V2(Mlt){OP(Mlt,*)}
-V2(Ind){R X0(Y0(!yt||0>xt?ke('@'):
+V2(Ind){R X0(Y0(0>xt?ke('@'):!yt?Zk(yn,Ind(r1(x),ix(i,y))):
  0>yt?ix(*yi,x):sq(Zk(yn,xn>yi[i]?ix(yi[i],x):ki(0)))));}
-K scan(K(*v)(),K x,K y){if(!yn)R(Y0(x));
+K scan(K(*v)(),K x,K y){if(!yn)R Y0(x);
   R yn?sq(Y0(Zk(yn,i?v(ix(i-1,z),ix(i,y)):v(x,ix(i,y))))):X0(y);}
 K over(K(*v)(),K x,K y){R QE(x=scan(v,x,y))?x:X0(ix(xn-1,x));}
 K (*fu[])()={0,nyi,nyi,top,til,cnt,enl,nyi},
