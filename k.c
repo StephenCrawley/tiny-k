@@ -44,7 +44,7 @@ K ku(I i){R ka(KU,i);} K kv(I i){R ka(KV,i);} K ks(I a){R ka(-KS,a);}
 K ke(I a){R ka(KE,a);} K kw(I i){R ka(KW,i);} K kK(I n){R tn( KK,n);} 
 K kI(I n){R tn(KI,n);} K kwv(I w,I v){R k2(kw(w),kv(v));}
 V r0(K x){if(!x||xr--)R;if(!xt)DO(xn,r0(xk[i]));free(x);} K r1(K x){R xr++,x;}
-K xp(K x){R xt?X0(Zk(xn,ki(xi[i]))):x;} K Cat(); K jk(K x,K y){R Cat(x,k1(y));}
+K xp(K x){R xt?X0(Zk(xn,ki(xi[i]))):x;}
 K sq(K x){DO(xn,if(kT(xk[i])!=-KI)R x;)R X0(Zi(xn,*(I*)kD(xk[i])));}
 K ix(I i,K x){R 0>xt?r1(x):xt?ki(xi[i]):r1(xk[i]);}
 
@@ -55,7 +55,7 @@ I qi(C a){R a>='0'&&a<='9';} I qa(C a){R a>='a'&&a<='z';}
 C vt[]=" :+*!#,@"; I qv(C a){C *s=strchr(vt,a);R s?s-vt:0;}
 C wt[]=" /\\"; I qw(C a){C *s=strchr(wt,a);R s?s-wt:0;} 
 K pi(C**p){C*s=*p;I i=0;W(qi(*s))i=i*10+*s++-'0';R *p=s,ki(i);}
-K pE(C,C**);K pb(C**p){K x;R !ws(p)?ke(')'):')'==**p?++*p,kK(0):
+K pE();K pb(C**p){K x;R !ws(p)?ke(')'):')'==**p?++*p,kK(0):
  QE(x=pE(',',p))?x:')'==**p?++*p,x:X0(ke(')'));}
 K pe(C**p){K x,y;C a=ws(p);++*p;I w,v=qv(a),n=qi(a),b=qb(a);
  if(!v&&!n&&!b&&!qa(a)){R ke(a);}if(v){w=qw(**p);
@@ -63,8 +63,8 @@ K pe(C**p){K x,y;C a=ws(p);++*p;I w,v=qv(a),n=qi(a),b=qb(a);
  x=n?--*p,pi(p):b?pb(p):ks(a);if(QE(x))R x;if(EOE(a=ws(p)))R x;
  v=qv(a);if(v&&(w=qw(*++*p)))++*p;if(!v||EOE(ws(p)))R X0(ke(a));
  R QE(y=pe(p))?X0(y):k3(w?kwv(w,v):kv(v),x,y);}
-K pE(C u,C**p){K t,x=kK(0);
- do{t=pe(p);if(QE(t))R X0(t);x=jk(x,t);}W(';'==*(*p)++);--*p;
+K Cat();K pE(I u,C**p){K t,x=kK(0);
+ do{t=pe(p);if(QE(t))R X0(t);x=Cat(x,k1(t));}W(';'==*(*p)++);--*p;
  R 1==xn?X0(ix(0,x)):Cat(k1(ku(qv(u))),x);}
 
 // verbs
