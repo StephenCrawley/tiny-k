@@ -89,11 +89,11 @@ K (*fu[])()={0,nyi,nyi,top,til,cnt,enl,nyi},
 
 // eval
 K w0(K x){R vt[*xi]==','?kI(0):ki(vt[*xi]=='*');}
-K ew(K x,K y,K z){I i=*(I*)kD(*xk);x=xk[1];R fw[i](fv[*xi],y,z);}
+K ew(K x,K a,K b){K y=xk[1];x=*xk;R fw[*xi](fv[*yi],a?a:w0(y),b);}
 K ee(K x){K y,z;if(!xn)R r1(x);if(xt)R y=-KS!=xt?x:g[*xc-'a'],y?r1(y):ke(*xc);
  if(xn>2&&KU==kT(*xk)){I i=xn-1;z=kK(i);
   W(i){K t;if(QE(t=ee(xk[i])))R Z0(t);zk[--i]=t;}R sq(z);}
- y=xk[1];if(2==xn)R x=*xk,QE(y=ee(y))?y:xt?fu[*xi](y):ew(x,w0(xk[1]),y);
+ y=xk[1];if(2==xn)R x=*xk,QE(y=ee(y))?y:xt?fu[*xi](y):ew(x,0,y);
  if(QE(z=ee(xk[2]))){R z;}x=*xk;if(-KS==yt&&KV==xt&&vt[*xi]==':')R set(y,z);
  R QE(y=ee(y))?Z0(y):xt?fv[*xi](y,z):ew(x,y,z);}
 K eE(K x){DO(xn-1,r0(ee(xk[i+1])));R ee(xk[xn-1]);}
