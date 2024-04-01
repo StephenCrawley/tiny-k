@@ -70,7 +70,7 @@ K pE(C u,C**p){K t,x=kK(0);
 // verbs
 K g[26]={0}; // variable table a-z
 V1(nyi){R X0(ke(0));} V2(Nyi){R X0(Y0(ke(0)));}
-V1(top){R X0(ix(0,x));} V1(til){R X0(-KI!=xt?ke('!'):Zi(*xi,i));}
+V1(top){R xn?X0(ix(0,x)):x;} V1(til){R X0(-KI!=xt?ke('!'):Zi(*xi,i));}
 V1(cnt){R X0(ki(xn));} V1(enl){R sq(k1(x));}
 V2(Cat){R X0(Y0(sq(Zk(xn+yn,i<xn?ix(i,x):ix(i-xn,y)))));}
 V2(set){I v=*xc-'a';if(g[v])r0(g[v]);R g[v]=r1(y);}
@@ -83,7 +83,7 @@ V2(Ind){R X0(Y0(0>xt?ke('@'):!yt?Zk(yn,Ind(r1(x),ix(i,y))):
  0>yt?ix(*yi,x):sq(Zk(yn,xn>yi[i]?ix(yi[i],x):ki(0)))));}
 K scan(K(*v)(),K x,K y){if(!yn)R Y0(x);
   R yn?sq(Y0(Zk(yn,i?v(ix(i-1,z),ix(i,y)):v(x,ix(i,y))))):X0(y);}
-K over(K(*v)(),K x,K y){R QE(x=scan(v,x,y))?x:X0(ix(xn-1,x));}
+K over(K(*v)(),K x,K y){R QE(x=scan(v,x,y))||!xn?x:X0(ix(xn-1,x));}
 K (*fu[])()={0,nyi,nyi,top,til,cnt,enl,nyi},
   (*fv[])()={0,Nyi,Add,Mlt,Nyi,Tak,Cat,Ind},(*fw[])()={0,over,scan};
 
