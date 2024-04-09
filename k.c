@@ -34,8 +34,7 @@ typedef struct  {C t;I r,n;C d[];}*K;
 
 // object
 enum {KE=-128,KK=0,KI,KS,KU,KV,KW};
-K ma(I n){K k=calloc(1,sizeof(*k)+sizeof(I)*n);R k;}
-K tn(C t,I n){K x=ma(n);R xt=t,xr=0,xn=n,x;}
+K tn(C t,I n){K x=calloc(1,sizeof(*x)+sizeof(I)*n);R xt=t,xr=0,xn=n,x;}
 K k1(K a){K x=tn(KK,1);R *xk=a,x;}
 K k2(K a,K b){K x=tn(KK,2);R *xk=a,xk[1]=b,x;}
 K k3(K a,K b,K c){K x=tn(KK,3);R *xk=a,xk[1]=b,xk[2]=c,x;}
